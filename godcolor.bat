@@ -4,12 +4,12 @@ chcp 65001 > nul 2>&1
 setlocal enabledelayedexpansion
 
 rem 获取命令行参数
-set "command=%~1"
-set "value=%~2"
-set "command2=%~3"
-set "value2=%~4"
+rem set "command=%~1"
+rem set "value=%~2"
+rem set "command2=%~3"
+rem set "value2=%~4"
 
-if "%command%"== "?" (
+if "%~1"== "?" (
     echo 	0  = Black       8  = Gray
     echo 	1  = Blue        9  = Light Blue
     echo 	2  = Green       10 = Light Green
@@ -21,13 +21,13 @@ if "%command%"== "?" (
     exit /b 0 
 )
 
-if "!command!"=="-c" (
+if "%~1"=="-c" (
     rem 检查颜色值是否在有效范围内
-    if %value% lss 0 (
+    if %~2 lss 0 (
       echo 请输入godcolor ? 获取正确的参数
       exit /b 1
     )
-    if %value% gtr 15 (
+    if %~2 gtr 15 (
       echo 请输入godcolor ? 获取正确的参数
       exit /b 1
     )
@@ -36,7 +36,7 @@ if "!command!"=="-c" (
     net session >nul 2>&1
     if %errorLevel% equ 0 (
       rem 修改注册表值
-      reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor" /v DefaultColor /t REG_DWORD /d %value% /f
+      reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor" /v DefaultColor /t REG_DWORD /d %~2 /f
       echo 请重启终端以使更改生效
       exit /b 0
     ) else (

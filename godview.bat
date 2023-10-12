@@ -3,6 +3,10 @@ REM 此脚本可以查看神创建的脚本功能及用法:  godview -e 需要�
 setlocal enabledelayedexpansion
 
 set "rootDir=C:\shell_windows"
+if "%~1" == "?" (
+    echo -e bat.name  //view script discript 
+    echo -fp file.name //view file permison
+)
 
 if "%~1" == "-e" (
     set "targetFile=%rootDir%\%2.bat"
