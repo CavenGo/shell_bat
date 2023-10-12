@@ -2,7 +2,7 @@
 REM 此脚本可以查看神创建的脚本功能及用法:  godview -e 需要查看的命令
 setlocal enabledelayedexpansion
 
-set "rootDir=C:\godcmd"
+set "rootDir=C:\shell_windows"
 
 if "%~1" == "-e" (
     set "targetFile=%rootDir%\%2.bat"
@@ -12,7 +12,7 @@ if "%~1" == "-e" (
             set /A "lineCount+=1"
             if !lineCount! == 2 (
                 echo !targetFile!
-                echo 该命令的使用方式为: %%L
+                echo %%L
                 exit /B
             )
         )

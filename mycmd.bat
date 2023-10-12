@@ -7,7 +7,7 @@ chcp 65001 > mul 2>&1
 
 echo 神创建的所有命令：
 
-set "folder=C:\godcmd"
+set "folder=C:\shell_windows"
 
 for %%F in ("%folder%\*.bat") do (
     REM echo %%~nxF 输出的脚本名有.bat后缀	
