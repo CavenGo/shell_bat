@@ -1,15 +1,17 @@
 @echo off
-rem 必须要管理员权限启动，该命令可改变cmd命令行字体颜色
+REM 必须要管理员权限启动，该命令可改变cmd命令行字体颜色
 chcp 65001 > nul 2>&1
+if "%~1"=="" (
+    echo 请输入godcolor ?获取参数
+    exit /b 0
+)
+
 setlocal enabledelayedexpansion
 
-rem 获取命令行参数
-rem set "command=%~1"
-rem set "value=%~2"
-rem set "command2=%~3"
-rem set "value2=%~4"
 
-if "%~1"== "?" (
+
+if "%~1" == "?" (
+    echo     输入: godcolor -c number 修改颜色
     echo 	0  = Black       8  = Gray
     echo 	1  = Blue        9  = Light Blue
     echo 	2  = Green       10 = Light Green
@@ -21,7 +23,7 @@ if "%~1"== "?" (
     exit /b 0 
 )
 
-if "%~1"=="-c" (
+if "%~1" =="-c" (
     rem 检查颜色值是否在有效范围内
     if %~2 lss 0 (
       echo 请输入godcolor ? 获取正确的参数
@@ -47,4 +49,4 @@ if "%~1"=="-c" (
 
 rem 如果命令输入不正确，显示用法提示
 echo 用法: color -c 颜色_英文
-exit /b 1
+endlocal

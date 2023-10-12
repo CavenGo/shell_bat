@@ -1,6 +1,12 @@
 @echo off
 REM 此脚本可以查看神创建的脚本功能及用法:  godview -e 需要查看的命令
+if "%~1"=="" (
+    echo 请输入godview ?获取参数
+    exit /b 0
+)
+
 setlocal enabledelayedexpansion
+
 
 set "rootDir=C:\shell_windows"
 if "%~1" == "?" (

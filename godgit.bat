@@ -1,7 +1,12 @@
 @echo off
 rem 一键上传至github，godgit ? 查看使用方法
-
 chcp 65001 > nul 2>&1
+if "%~1"=="" (
+    echo 请输入godgit ?获取参数
+    exit /b 0
+)
+
+
 setlocal enabledelayedexpansion
 
 rem 获取命令行参数
