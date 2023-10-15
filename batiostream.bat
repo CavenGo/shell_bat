@@ -18,5 +18,7 @@ rem    nircmd sendmouse left click
 
 if "%~1"=="?" (
     echo 不带参数让鼠标以所处位置疯狂点击，Crtl 停止
+    echo nircmd可以进行系统管理、桌面操作、文件操作、网络操作等
+    echo https://blog.csdn.net/hongkaihua1987/article/details/85050851 查看nircmd详细用法
     exit /b 0
 )
