@@ -12,7 +12,7 @@ for /L %%i in (1,1,%num_clicks%) do (
     echo Performing click %%i
     nircmd sendmouse left click
 )
-    nircmd sendmouse left click
+rem    nircmd sendmouse left click
     exit /b 0
 )
 
